@@ -176,14 +176,3 @@ GET  /api/auth.php?action=check
 ```http
 GET /api/export.php?search=..&jurusan=..
 ```
-
-## 9. Jika Muncul Error Koneksi Database
-
-1. MySQL/MariaDB sudah berjalan.
-2. Nama database adalah `crud_mahasiswa`.
-3. Username dan password di `config/database.php` benar.
-4. Port MySQL sesuai konfigurasi komputer Anda (default DSN memakai 3306,
-   ubah lewat env var `DB_PORT` bila berbeda).
-5. Folder project berada di `htdocs` XAMPP atau `www` Laragon.
-6. PHP yang digunakan mendukung PDO MySQL dan ekstensi `fileinfo` (untuk
-   validasi upload foto).
