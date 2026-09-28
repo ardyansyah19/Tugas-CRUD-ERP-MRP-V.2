@@ -170,9 +170,3 @@ POST /api/auth.php?action=login    { "username", "password", "csrf_token" }
 POST /api/auth.php?action=logout
 GET  /api/auth.php?action=check
 ```
-
-### Export
-
-```http
-GET /api/export.php?search=..&jurusan=..
-```
