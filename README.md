@@ -162,11 +162,3 @@ mengganti dengan yang baru.
 DELETE /api/mahasiswa.php?id=1
 X-CSRF-Token: <token>
 ```
-
-### Auth
-
-```http
-POST /api/auth.php?action=login    { "username", "password", "csrf_token" }
-POST /api/auth.php?action=logout
-GET  /api/auth.php?action=check
-```
