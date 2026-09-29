@@ -145,20 +145,3 @@ Content-Type: multipart/form-data
 
 Field: `nbi`, `nama`, `jurusan`, `angkatan`, `email`, `no_hp`, `alamat`,
 `foto` (file, opsional), `csrf_token`.
-
-### PUT (via POST + `_method=PUT`) — Mengubah data
-
-```http
-POST /api/mahasiswa.php?id=1
-Content-Type: multipart/form-data
-```
-
-Sertakan field `_method=PUT`. Field `hapus_foto=1` untuk menghapus foto tanpa
-mengganti dengan yang baru.
-
-### DELETE — Menghapus data
-
-```http
-DELETE /api/mahasiswa.php?id=1
-X-CSRF-Token: <token>
-```
