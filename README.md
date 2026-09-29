@@ -129,19 +129,3 @@ GET /api/mahasiswa.php?page=1&limit=10&sort=nama&dir=asc&search=budi&jurusan=Tek
 ```http
 GET /api/mahasiswa.php?action=stats
 ```
-
-### GET — Daftar jurusan unik (untuk dropdown filter)
-
-```http
-GET /api/mahasiswa.php?action=jurusan_list
-```
-
-### POST — Menambah data (multipart/form-data, agar bisa sertakan foto)
-
-```http
-POST /api/mahasiswa.php
-Content-Type: multipart/form-data
-```
-
-Field: `nbi`, `nama`, `jurusan`, `angkatan`, `email`, `no_hp`, `alamat`,
-`foto` (file, opsional), `csrf_token`.
