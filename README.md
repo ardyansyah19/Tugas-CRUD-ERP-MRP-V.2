@@ -95,21 +95,3 @@ lanjut). Untuk saat ini, cara tercepat mengganti password adalah meng-generate
 hash bcrypt baru (misalnya dengan `password_hash('password_baru', PASSWORD_BCRYPT)`
 di file PHP sementara) lalu meng-update kolom `password` pada tabel `users`
 lewat phpMyAdmin.
-
-## 7. Fitur
-
-- Login admin dengan session, proteksi semua halaman & endpoint API
-- Menampilkan data dengan pagination (10/25/50/100 per halaman)
-- Sorting per kolom (klik header tabel)
-- Filter berdasarkan jurusan + pencarian gabungan (nama, NBI, jurusan, email)
-- Tambah, edit, hapus data mahasiswa, termasuk upload foto profil
-- Dashboard ringkasan jumlah mahasiswa & jurusan
-- Export data (sesuai filter aktif) ke CSV
-- Notifikasi toast dan modal konfirmasi hapus
-- Dark mode
-- Validasi field wajib, format email, format NBI/HP/angkatan, baik di client
-  maupun di server
-- CSRF token untuk semua request POST/PUT/DELETE
-- Rate limiting sederhana berbasis session untuk endpoint yang mengubah data
-- Prepared Statement PDO di semua query
-- Proteksi folder upload dari eksekusi script
