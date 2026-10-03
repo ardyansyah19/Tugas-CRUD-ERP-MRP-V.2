@@ -64,34 +64,3 @@ crud_mahasiswa_v2/
 
 Salin folder ke `C:\laragon\www\`, jalankan Apache/Nginx + MySQL dari Laragon,
 lalu jalankan langkah import database yang sama seperti di atas.
-
-## 5. Konfigurasi Database
-
-Buka `config/database.php`. Secara default menggunakan:
-
-```php
-$host = "localhost";
-$db   = "crud_mahasiswa";
-$user = "root";
-$pass = "";
-```
-
-Nilai ini juga bisa dioverride lewat environment variable `DB_HOST`, `DB_NAME`,
-`DB_USER`, `DB_PASS`, `DB_PORT` — berguna saat deployment agar kredensial tidak
-perlu ditulis langsung di source code.
-
-## 6. Login
-
-Akun default setelah import database:
-
-```text
-Username: admin
-Password: admin123
-```
-
-**Segera ganti password ini** setelah login pertama (lihat bagian Keamanan di
-bawah untuk cara menambah fitur ganti password bila ingin dikembangkan lebih
-lanjut). Untuk saat ini, cara tercepat mengganti password adalah meng-generate
-hash bcrypt baru (misalnya dengan `password_hash('password_baru', PASSWORD_BCRYPT)`
-di file PHP sementara) lalu meng-update kolom `password` pada tabel `users`
-lewat phpMyAdmin.
