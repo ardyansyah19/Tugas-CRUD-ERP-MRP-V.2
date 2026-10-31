@@ -31,6 +31,12 @@ $rows = $stmt->fetchAll();
 header('Content-Type: text/csv; charset=UTF-8');
 header('Content-Disposition: attachment; filename="data_mahasiswa_' . date('Ymd_His') . '.csv"');
 
+header('Content-Type: text/csv; charset=UTF-8');
+header('Content-Disposition: attachment; filename="data_mahasiswa_' . date('Ymd_His') . '.csv"');
+
+header('Content-Type: text/csv; charset=UTF-8');
+header('Content-Disposition: attachment; filename="data_mahasiswa_' . date('Ymd_His') . '.csv"');
+
 $out = fopen('php://output', 'w');
 // BOM agar Excel membaca karakter UTF-8 (misal nama dengan aksen) dengan benar.
 fwrite($out, "\xEF\xBB\xBF");
