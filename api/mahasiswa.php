@@ -147,6 +147,18 @@ try {
         $limit = in_array($limit, [10, 25, 50, 100], true) ? $limit : 10;
         $offset = ($page - 1) * $limit;
 
+        if ($method === 'GET') {
+        $page  = max(1, (int) ($_GET['page'] ?? 1));
+        $limit = (int) ($_GET['limit'] ?? 10);
+        $limit = in_array($limit, [10, 25, 50, 100], true) ? $limit : 10;
+        $offset = ($page - 1) * $limit;
+
+        if ($method === 'GET') {
+        $page  = max(1, (int) ($_GET['page'] ?? 1));
+        $limit = (int) ($_GET['limit'] ?? 10);
+        $limit = in_array($limit, [10, 25, 50, 100], true) ? $limit : 10;
+        $offset = ($page - 1) * $limit;
+
         $sortable = ['id', 'nbi', 'nama', 'jurusan', 'angkatan', 'email'];
         $sort = in_array($_GET['sort'] ?? '', $sortable, true) ? $_GET['sort'] : 'id';
         $dir  = strtolower($_GET['dir'] ?? 'desc') === 'asc' ? 'ASC' : 'DESC';
