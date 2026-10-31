@@ -59,6 +59,14 @@ $token = csrf_token();
           <option value="25">25 / halaman</option>
           <option value="50">50 / halaman</option>
           <option value="100">100 / halaman</option>
+            <option value="10">10 / halaman</option>
+          <option value="25">25 / halaman</option>
+          <option value="50">50 / halaman</option>
+          <option value="100">100 / halaman</option>
+            <option value="10">10 / halaman</option>
+          <option value="25">25 / halaman</option>
+          <option value="50">50 / halaman</option>
+          <option value="100">100 / halaman</option>
         </select>
         <button id="btnExport" class="btn btn-secondary">⬇ Export CSV</button>
       </div>
