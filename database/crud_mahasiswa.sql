@@ -22,6 +22,38 @@ CREATE TABLE IF NOT EXISTS mahasiswa (
     INDEX idx_angkatan (angkatan)
 );
 
+CREATE TABLE IF NOT EXISTS mahasiswa (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nbi VARCHAR(30) NOT NULL UNIQUE,
+    nama VARCHAR(100) NOT NULL,
+    jurusan VARCHAR(100) NOT NULL,
+    angkatan SMALLINT UNSIGNED NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    no_hp VARCHAR(20) NULL,
+    alamat VARCHAR(255) NULL,
+    foto VARCHAR(255) NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_jurusan (jurusan),
+    INDEX idx_angkatan (angkatan)
+);
+
+CREATE TABLE IF NOT EXISTS mahasiswa (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nbi VARCHAR(30) NOT NULL UNIQUE,
+    nama VARCHAR(100) NOT NULL,
+    jurusan VARCHAR(100) NOT NULL,
+    angkatan SMALLINT UNSIGNED NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    no_hp VARCHAR(20) NULL,
+    alamat VARCHAR(255) NULL,
+    foto VARCHAR(255) NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_jurusan (jurusan),
+    INDEX idx_angkatan (angkatan)
+);
+
 INSERT INTO mahasiswa (nbi, nama, jurusan, angkatan, email, no_hp, alamat) VALUES
 ('1462400001', 'Contoh Mahasiswa 1', 'Teknik Informatika', 2024, 'mahasiswa1@example.com', '081234567890', 'Surabaya'),
 ('1462400002', 'Contoh Mahasiswa 2', 'Teknik Informatika', 2024, 'mahasiswa2@example.com', '081234567891', 'Surabaya'),
