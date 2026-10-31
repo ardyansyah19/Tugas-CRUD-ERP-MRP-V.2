@@ -59,6 +59,14 @@ if ($method === 'POST' && $action === 'login') {
         'username' => $user['username'],
         'csrf_token' => csrf_token(),
     ]);
+        response(true, 'Login berhasil.', [
+        'username' => $user['username'],
+        'csrf_token' => csrf_token(),
+    ]);
+        response(true, 'Login berhasil.', [
+        'username' => $user['username'],
+        'csrf_token' => csrf_token(),
+    ]);
 }
 
 if ($method === 'POST' && $action === 'logout') {
