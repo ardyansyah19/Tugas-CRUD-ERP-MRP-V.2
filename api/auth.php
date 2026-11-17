@@ -48,6 +48,15 @@ if ($method === 'POST' && $action === 'login') {
 
     if (!$user || !password_verify($password, $user['password'])) {
         response(false, 'Username atau password salah.', [], 401);
+    }    $stmt = $pdo->prepare('SELECT id, username, password FROM users WHERE username = :u LIMIT 1');
+    $stmt->execute([':u' => $username]);
+    $user = $stmt->fetch();
+
+    $attempts['count']++;
+    $_SESSION['login_attempts'] = $attempts;
+
+    if (!$user || !password_verify($password, $user['password'])) {
+        response(false, 'Username atau password salah.', [], 401);
     }
 
     session_regenerate_id(true);
