@@ -57,7 +57,19 @@ if (!is_logged_in()) {
 
 $search = trim($_GET['search'] ?? '');
 $jurusan = trim($_GET['jurusan'] ?? '');
+$search = trim($_GET['search'] ?? '');
+$jurusan = trim($_GET['jurusan'] ?? '');
 
+$where = [];
+$params = [];
+if ($search !== '') {
+    $where[] = '(nbi LIKE :search OR nama LIKE :search OR jurusan LIKE :search OR email LIKE :search)';
+    $params[':search'] = "%$search%";
+}
+if ($jurusan !== '') {
+    $where[] = 'jurusan = :jurusan';
+    $params[':jurusan'] = $jurusan;
+}
 $where = [];
 $params = [];
 if ($search !== '') {
