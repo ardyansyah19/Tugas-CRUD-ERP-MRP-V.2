@@ -106,6 +106,19 @@ function validate_input(array $input, PDO $pdo, ?int $excludeId = null): void
     if ($angkatan !== '' && (!ctype_digit($angkatan) || $angkatan < 2000 || $angkatan > (int) date('Y') + 1)) {
         response(false, 'Angkatan tidak valid.', [], 422);
     }
+            response(false, 'Format email tidak valid.', [], 422);
+    }
+
+    $noHp = trim($input['no_hp'] ?? '');
+    if ($noHp !== '' && !preg_match('/^[0-9+\-\s]{8,20}$/', $noHp)) {
+        response(false, 'Format nomor HP tidak valid.', [], 422);
+    }
+
+    $angkatan = trim((string) ($input['angkatan'] ?? ''));
+    if ($angkatan !== '' && (!ctype_digit($angkatan) || $angkatan < 2000 || $angkatan > (int) date('Y') + 1)) {
+        response(false, 'Angkatan tidak valid.', [], 422);
+    }
+
 
     // Cek duplikasi NBI / email di luar baris yang sedang diedit.
     $sql = 'SELECT id FROM mahasiswa WHERE (nbi = :nbi OR email = :email)';
