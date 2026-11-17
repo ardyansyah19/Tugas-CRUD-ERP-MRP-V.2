@@ -76,6 +76,34 @@ function rate_limit_check(): bool
 
     return $bucket['count'] <= RATE_LIMIT_MAX_REQUEST;
 }
+
+/**
+ * Cek status login. Mengembalikan true jika sudah login sebagai admin.
+ */
+function is_logged_in(): bool
+{
+    return !empty($_SESSION['user_id']);
+}
+
+/**
+ * Rate limiting sederhana berbasis session per pengguna (bukan pengganti
+ * rate limiting di level server/proxy, hanya lapisan tambahan untuk tugas ini).
+ */
+function rate_limit_check(): bool
+{
+    $now = time();
+    $bucket = $_SESSION['rate_bucket'] ?? ['start' => $now, 'count' => 0];
+
+    if ($now - $bucket['start'] > RATE_LIMIT_WINDOW) {
+        $bucket = ['start' => $now, 'count' => 0];
+    }
+
+    $bucket['count']++;
+    $_SESSION['rate_bucket'] = $bucket;
+
+    return $bucket['count'] <= RATE_LIMIT_MAX_REQUEST;
+}
+
 <?php
 /**
  * Konfigurasi umum aplikasi.
